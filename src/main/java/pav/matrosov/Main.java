@@ -5,13 +5,12 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         Functions calc = new Functions();
         Scanner s = new Scanner(System.in);
         System.out.println("Введите два числа");
-        try {
-            int a = s.nextInt();
-            int b = s.nextInt();
+            double a = s.nextDouble();
+            double b = s.nextDouble();
 
             System.out.println("Введите арифметиское действие (‘+’, ‘-’, ‘*’ или ‘/’)");
             switch (s.next().charAt(0)) {
@@ -25,20 +24,14 @@ public class Main {
                     System.out.println(calc.multiplication(a, b));
                     break;
                 case '/':
-                    try {
                         System.out.println(calc.div(a, b));
-                    } catch (ArithmeticException e) {
-                        System.out.println("На ноль делить нельзя");
+                    if (b == 0) {
+                        throw new IllegalArgumentException("На ноль делить нельзя");
                     }
                     break;
                 default:
-                    System.out.println("Вы ввели некорректный оператор");
-                    break;
+                    throw new IllegalArgumentException("Вы ввели некоретный оператор");
             }
             s.close();
-
-        } catch (InputMismatchException e) {
-            System.out.println("Необходимо ввести целое число");
-        }
     }
 }

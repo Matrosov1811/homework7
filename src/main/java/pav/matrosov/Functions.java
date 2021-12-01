@@ -2,19 +2,19 @@ package pav.matrosov;
 
 public class Functions {
 
-    public int sum (int a, int b) {
+    public double sum (double a, double b) {
         return a + b;
     }
 
-    public int subtraction (int a, int b) {
+    public double subtraction (double a, double b) {
         return a - b;
     }
 
-    public int multiplication (int a, int b) {
+    public double multiplication (double a, double b) {
         return a * b;
     }
 
-    public int div (int a, int b) {
+    public double div (double a, double b) {
         return a / b;
     }
 
